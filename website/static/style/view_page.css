@@ -1,0 +1,74 @@
+/* Body */
+/* body{
+    color: rgb(175, 175, 175);
+    background-color: #174d61;
+} */
+
+/* Main Container */
+.container{
+    /* background-color: whitesmoke; */
+    margin: 0%;
+    border: 0%;
+    text-decoration: none;
+    margin-bottom: 8rem;
+}
+
+/* details class */
+.details{
+    height: 30vh;
+    /* background-color: crimson; */
+}
+
+
+/* info Class */
+.page_info{
+    text-align: center;
+}
+
+.page_info h1{
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.page_info h2{
+    font-size: 1.2rem;
+}
+
+/* Navigation btn */
+.navigation_btn{
+    text-decoration: none;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.navigation_btn input{
+    padding: 0.4rem 1.6rem;
+}
+
+
+
+/* Image Class */
+.main_image{
+    /* margin-top: 10vh; */
+    margin-left: 1rem;
+    margin-right: 1rem;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* Main Image */
+.main_image img{
+    width: 95%;
+}
+
+
+
+footer{
+    font-size: .8rem;
+    text-align: center;
+    font-style: italic;
+}
+
+
+

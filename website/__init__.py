@@ -2,7 +2,13 @@ from flask import Flask
 
 
 def create_app():
-    app = False(__name__)
+    app = Flask(__name__)
     app.config['SECRET_KEY'] = 'secret_key'
+
+    from .views import views
+    from .auth import auth
+
+    app.register_blueprint(views, url_prefix='/')
+    app.register_blueprint(auth, url_prefix='/')
 
     return app
