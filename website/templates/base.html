@@ -4,15 +4,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nav</title>
+  <title>MangaVerse</title>
 
   <link rel="stylesheet" href="{{ url_for('static', filename='style/base.css')}}">
 
 </head>
 <body>
+  <!-- navigation bar -->
+  <nav class="navbar">
+    <div class="container">
+      <!-- logo -->
+      <ul>
+        <li><a class="navbar-brand" href="/"><img src="static/image/MangaVerse.png" alt="MangaVerse logo" draggable="false" height="32px"></a></li>
+        <li>
+          <p>MangaVerse</p>
+        </li>
+      </ul>
 
-  <nav>
-    <a href="/">MangaVerse</a>
+      <!-- Search bar -->
+      <div class="search-bar">
+        <input type="search" role="combobox" aria-controls="matches" placeholder="Search">
+      </div>
+
+      <!-- account section -->
+      <div class="account-section" >
+        <p>My Account</p>
+      </div>
+
+    </div>
+
   </nav>
   
 

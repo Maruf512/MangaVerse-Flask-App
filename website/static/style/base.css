@@ -1,22 +1,54 @@
-nav {
-background-color: #333;
-color: #fff;
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 10px;
+*{
+    margin: 0%;
+    padding: 0%;
+    box-shadow: none;
+    overflow-x: hidden;
+    font-family: sans-serif;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-ul {
-list-style: none;
-display: flex;
+.navbar{
+    background-color: #333;
+    display: flex;
+    height: 7vh;
+    justify-content: center;
 }
 
-li {
-margin-right: 20px;
+.container{
+    width: 95vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-a {
-color: #fff;
-text-decoration: none;
+.container ul{
+    width: 30vw;
+    display: flex;
+    align-items: center;
+}
+
+.container ul li{
+    margin-right: .8rem;
+}
+
+.container ul li p{
+    font-size: 1.2rem;
+}
+
+.search-bar{
+    width: 30vw;
+}
+.search-bar input{
+    width: 25vw;
+    height: 32px;
+    border: none;
+    border-radius: 0.2rem;
+    font-size: 1.2rem;
+    justify-content: center;
+}
+
+.account-section{
+    width: 30vw;
+    text-align: center;
 }
