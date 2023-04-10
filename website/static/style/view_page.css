@@ -1,22 +1,21 @@
-/* Body */
-/* body{
-    color: rgb(175, 175, 175);
-    background-color: #174d61;
-} */
+*{
+    overflow-x: hidden;
+    margin-left: 0;
+    margin-right: 0;
+}
 
 /* Main Container */
 .container{
-    /* background-color: whitesmoke; */
-    margin: 0%;
-    border: 0%;
+    width: 100vw;
     text-decoration: none;
     margin-bottom: 8rem;
+    text-align: center;
 }
 
 /* details class */
 .details{
-    height: 30vh;
-    /* background-color: crimson; */
+    height: 16rem;
+    overflow: hidden;
 }
 
 
@@ -46,20 +45,26 @@
     padding: 0.4rem 1.6rem;
 }
 
-
-
 /* Image Class */
+.img-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
 .main_image{
-    /* margin-top: 10vh; */
-    margin-left: 1rem;
-    margin-right: 1rem;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+    width: 42rem;
+    /* background-color: crimson; */
     text-align: center;
 }
 
 /* Main Image */
 .main_image img{
-    width: 95%;
+    width: 100%;
 }
 
 

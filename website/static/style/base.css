@@ -46,9 +46,10 @@
     border-radius: 0.2rem;
     font-size: 1.2rem;
     justify-content: center;
+    color: #333;
 }
 
 .account-section{
     width: 30vw;
-    text-align: center;
+    text-align: end;
 }
