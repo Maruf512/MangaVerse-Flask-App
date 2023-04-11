@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Sign-Up{% endblock %}
+
+{% block content %}
+
+<div class="signup_container">
+
+    <div class="signup_box">
+
+        <form method="POST">
+            <h3>Sign Up</h3>
+            <hr>
+
+            <input type="email"
+            class="signup_input"
+            id="email"
+            name="email"
+            placeholder="Enter Email"
+            />
+            
+
+            <input type="text"
+            class="signup_input"
+            id="firstName"
+            name="firstName"
+            placeholder="Enter First Name"
+            />
+
+            <input type="password"
+            class="signup_input"
+            id="password1"
+            name="password1"
+            placeholder="Enter Password"
+            />
+
+            <input type="password"
+            class="signup_input"
+            id="password2"
+            name="password2"
+            placeholder="Confirm Password"
+            />
+
+            <button type="submit" class="signup_btn btn btn-primary" >Submit</button>
+
+    
+    
+        </form>
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

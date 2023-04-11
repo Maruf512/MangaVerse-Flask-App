@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MangaVerse</title>
+  <title>{% block title %}Home{% endblock %}</title>
 
   <link rel="icon" type="image/x-icon" href="static/image/MangaVerse.png">
 
@@ -36,7 +36,17 @@
     </div>
 
   </nav>
+
+  <!-- <div class="container"> -->
+    {% block content %}
+    {% endblock %}
+  <!-- </div> -->
   
 
 </body>
+
+<footer>
+  <p>Created by Maruf Ahmed @ 2023</p>
+</footer>
+
 </html>
