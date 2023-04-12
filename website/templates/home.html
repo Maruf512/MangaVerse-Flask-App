@@ -7,19 +7,22 @@
 
 {% block content %}
 
+
 <!-- main container -->
 <main>
     <div class="container-2">
 
         <div class="brows-item-cards">
             <!-- Card 1 -->
+            {% for i in range(0, names_len) %}
             <div class="brows-item-card">
                 <div class="brows-item-photo">
-                    <img src="static\files\The 100 Girlfriends who (Cover).jpg" />
+                    <img src="static/files\Cover_img/{{images[i]}}" />
                 </div>
-                <a href="view"><h2>{{ Name }}</h2></a>
+                <a href="details/{{images[i]}}"><h2>{{ Name[i] }}</h2></a>
                 <p>{{ Details }}</p>
             </div>
+            {% endfor %}
     </div>
 
 

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Home{% endblock %}</title>
 
-  <link rel="icon" type="image/x-icon" href="static/image/MangaVerse.png">
+  <link rel="icon" type="icon" href="{{ url_for('static', filename='image/MangaVerse.png')}}">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='style/base.css')}}">
 
@@ -17,9 +17,10 @@
     <div class="container">
       <!-- logo -->
       <ul>
-        <li><a class="navbar-brand" href="/"><img src="static/image/MangaVerse.png" alt="MangaVerse logo" draggable="false" height="32px"></a></li>
+        <!-- <li><a class="navbar-brand" href="/"><img src="static/image/MangaVerse.png" alt="MangaVerse logo" draggable="false" height="32px"></a></li>
+        -->
         <li>
-          <p>MangaVerse</p>
+          <a class="navbar-brand" href="/"><p>MangaVerse</p></a>
         </li>
       </ul>
 

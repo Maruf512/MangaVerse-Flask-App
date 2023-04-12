@@ -1,3 +1,31 @@
+/* Scroll bar */
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+
+}
+
+
+
+
+
+
+
+
 .btn {
     appearance: none;
     -webkit-appearance: none;
@@ -28,6 +56,8 @@ color: #ffffff;
     box-shadow: none;
     overflow-x: hidden;
     font-family: sans-serif;
+    scroll-behavior: smooth;
+
 }
 
 .navbar{
@@ -54,10 +84,14 @@ color: #ffffff;
 
 .container ul li{
     margin-right: .8rem;
+    text-decoration: none;
 }
 
-.container ul li p{
+
+.container ul li a{
     font-size: 1.2rem;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .search-bar{
@@ -213,7 +247,7 @@ footer{
 /* ============================Browse Items =============================*/
 
 main .container-2 {
-margin-top: 2rem;
+    margin-top: 2rem;
 }
 
 main .container-2 h2:nth-child(1) {
@@ -226,27 +260,32 @@ main .container-2 .brows-item-cards {
 margin-bottom: 2rem;
 display: grid;
 grid-template-columns: repeat(6, 1fr);
-gap: 2rem;
+/* gap: 1rem; */
 }
 
 main .container-2 .brows-item-card {
 height: auto;
 width: auto;
 background-color: white;
-padding: 24px;
-border-radius: 24px;
+padding: 14px;
+border-radius: 14px;
 overflow: hidden;
 display: flex;
 flex-direction: column;
 justify-content: space-around;
 align-items: center;
 box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+margin-left: 1rem;
+margin-right: 1rem;
+margin-bottom: 1rem;
+margin-top: 1rem;
 }
+
 
 main .container-2 .brows-item-photo {
 height: 220px;
 overflow: hidden;
-border-radius: 24px;
+border-radius: 14px;
 }
 
 
@@ -264,7 +303,7 @@ width: 100%;
 
 main .container-2 .brows-item-card p {
 text-align: justify;
-font-size: 1.2rem;
+font-size: 0.8rem;
 font-weight: 400;
 color: gray;
 }
@@ -277,7 +316,7 @@ main .container-2 .brows-item-card a{
 }
 
 main .container-2 .brows-item-card h2 {
-font-size: 1.4rem;
+font-size: 1rem;
 font-weight: 700;
 margin-bottom: 0.5rem;
 }
