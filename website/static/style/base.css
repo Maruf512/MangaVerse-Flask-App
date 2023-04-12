@@ -1,4 +1,6 @@
-/* Scroll bar */
+/* ================================================================ */
+/* ============================ Scroll bar ======================== */
+/* ================================================================ */
 /* width */
 ::-webkit-scrollbar {
     width: 8px;
@@ -16,13 +18,42 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
-
 }
 
+/* ================================================================= */
+/* ============================ Alert ============================== */
+/* ================================================================= */
+/* The alert message box */
+.alert {
+    padding: 20px;
+    color: white;
+    margin-bottom: 15px;
+}
 
+  /* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    overflow: hidden;
+}
+  /* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
 
+.danger-alert{
+    background-color: #f44336; /* Red */
+}
 
-
+.success-alert{
+    background-color: #2196F3;
+}
 
 
 
@@ -57,6 +88,12 @@ color: #ffffff;
     overflow-x: hidden;
     font-family: sans-serif;
     scroll-behavior: smooth;
+
+}
+
+body{
+    background-color: rgba(35, 37, 37, 0.850);
+    color: rgba(255, 255, 255, 0.7);
 
 }
 
@@ -105,6 +142,8 @@ color: #ffffff;
     font-size: 1.2rem;
     justify-content: center;
     color: #333;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .account-section{
@@ -191,8 +230,6 @@ footer{
 .signup_container{
     width: 100vw;
     height: 90vh;
-    background-color: whitesmoke;
-    /* text-align: center; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -210,7 +247,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items:flex-start;
-
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .signup_box h3{
@@ -264,28 +301,31 @@ grid-template-columns: repeat(6, 1fr);
 }
 
 main .container-2 .brows-item-card {
-height: auto;
-width: auto;
-background-color: white;
-padding: 14px;
-border-radius: 14px;
-overflow: hidden;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
-margin-left: 1rem;
-margin-right: 1rem;
-margin-bottom: 1rem;
-margin-top: 1rem;
+    height: auto;
+    width: auto;
+    padding: 14px;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    /* background-color: rgba(35, 37, 37, 0.8); */
+    background-color: #33333375;
 }
 
 
 main .container-2 .brows-item-photo {
-height: 220px;
+/* height: 220px; */
+/* width: 165px; */
 overflow: hidden;
 border-radius: 14px;
+display: flex;
 }
 
 
@@ -310,7 +350,7 @@ color: gray;
 
 main .container-2 .brows-item-card a{
     text-decoration: none;
-    color: black;
+    color: rgba(255, 255, 255, 0.7);
     margin-top: 0.8rem;
 
 }
@@ -319,4 +359,96 @@ main .container-2 .brows-item-card h2 {
 font-size: 1rem;
 font-weight: 700;
 margin-bottom: 0.5rem;
+}
+
+/* ============================================================== */
+/* ======================== Details Page ========================*/
+/* ============================================================== */
+
+main{
+    overflow-x: hidden;
+    margin-top: 2rem;
+    margin: 1rem;
+}
+
+main .details_container{
+    display: flex;
+    background-color: rgba(35, 37, 37, 0.850);
+    /* background-color: aqua; */
+    /* padding: 12px; */
+    margin: 1rem;
+    border-radius: 26px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.details_container_left{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 35vw;
+    text-align: center;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.details_container_left img{
+    width: 420px;
+    border-radius: 26px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.details_container_right{
+    margin-top: 2rem;
+    width: 65vw;
+}
+
+.details_container_right h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.details_container_right .information{
+    margin-bottom: 1rem;
+}
+
+.information{
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+}
+
+.detail_buttons{
+    height: 4rem;
+    overflow: hidden;
+    display: flex;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 4rem;
+    height: 1.8rem;
+    margin-right: 1rem;
+    margin-top: 0.4rem;
+    border-radius: 12px;
+}
+
+.details_container_right .discription{
+    margin-top: 2rem;
+    margin-right: 1rem;
+}
+
+.discription h4{
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+
+}
+
+.discription p{
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.2rem;
+    font-size: 1rem;
 }

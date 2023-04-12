@@ -5,54 +5,64 @@
 {% block content %}
 
 <main>
+    <!-- main container -->
     <div class="details_container">
-        <div class="cover_image">
+        
+        <!-- Details Left Side -->
+        <div class="details_container_left">
+
             <img src="{{ url_for('static', filename='files/Cover_img/' + manga_img)}}" alt="Cover Image">
+
         </div>
 
-        <div class="information">
+        <!-- Details Right Side -->
+        <div class="details_container_right">
             <h2>{{manga_img.split(".")[0].replace("_", " ").upper()}}</h2>
-            <p>Type: Manhwa</p>
-            <p>Authors: Chugong (Story), Jang,Sung-rak(Art)</p>
-            <p>Published: Mar 4, 2018 to ?</p>
-            <p>Score: 8.87</p>
-            <p>Views: 2,796,226</p>
-        </div>
-        <div class="buttons">
-            <a href="#" class="btn btn-primary">Read First</a>
-            <a href="#" class="btn btn-primary">Follow</a>
-        </div>
-        <div class="discription">
-            <h4>Description</h4>
+            <div class="information">
+                <p>Type: Manhwa</p>
+                <p>Authors: Chugong (Story), Jang,Sung-rak(Art)</p>
+                <p>Published: Mar 4, 2018 to ?</p>
+                <p>Score: 8.87</p>
+                <p>Views: 2,796,226</p>
+            </div>
+            <div class="detail_buttons">
+                <a href="#" class="btn btn-primary buttons">Read First</a>
+                <a href="#" class="btn btn-primary buttons">Follow</a>
+            </div>
+            <div class="discription">
+                <h4>Description</h4>
+    
+                <p>10 years ago, after “the Gate” that connected the real world with the monster world opened, some of the ordinary, everyday people received the power to hunt monsters within the Gate. They are known as “Hunters”. However, not all Hunters are powerful. My name is Sung Jin-Woo, an E-rank Hunter. I’m someone who has to risk his life in the lowliest of dungeons, the “World’s Weakest”. Having no skills whatsoever to display, I barely earned the required money by fighting in low-leveled dungeons… at least until I found a hidden dungeon with the hardest difficulty within the D-rank dungeons! In the end, as I was accepting death, I suddenly received a strange power, a quest log that only I could see, a secret to leveling up that only I know about! If I trained in accordance with my quests and hunted monsters, my level would rise. Changing from the weakest Hunter to the strongest S-rank Hunter!
+                </p>
+            </div>
 
-            <p>10 years ago, after “the Gate” that connected the real world with the monster world opened, some of the ordinary, everyday people received the power to hunt monsters within the Gate. They are known as “Hunters”. However, not all Hunters are powerful. My name is Sung Jin-Woo, an E-rank Hunter. I’m someone who has to risk his life in the lowliest of dungeons, the “World’s Weakest”. Having no skills whatsoever to display, I barely earned the required money by fighting in low-leveled dungeons… at least until I found a hidden dungeon with the hardest difficulty within the D-rank dungeons! In the end, as I was accepting death, I suddenly received a strange power, a quest log that only I could see, a secret to leveling up that only I know about! If I trained in accordance with my quests and hunted monsters, my level would rise. Changing from the weakest Hunter to the strongest S-rank Hunter!
-            </p>
+
         </div>
+        
     </div>
 
     <div class="chapter_container">
         <h2>Chapters</h2>
         <div class="chapters">
-            <table class="chapters_table">
-                <thead>
-                    <tr>
-                        <th>Chapter</th>
-                        <th>Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Chapter 1</td>
-                        <td>7 days ago</td>
-                    </tr>
-                    <tr>
-                        <td>Chapter 2</td>
-                        <td>14 days ago</td>
-                    </tr>
-                </tbody>
+            <ul class="chapter_list">
+                <li>
+                    <p>1</p>
+                    <a href="#">Chapter 1</a>
+                </li>
+                <li>
+                    <p>2</p>
+                    <a href="#">Chapter 2</a>
+                </li>
+                <li>
+                    <p>3</p>
+                    <a href="#">Chapter 3</a>
+                </li>
 
-            </table>
+
+            </ul>
         </div>
+
+
     </div>
 
 
