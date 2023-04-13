@@ -1,3 +1,6 @@
+
+
+
 /* ================================================================ */
 /* ============================ Scroll bar ======================== */
 /* ================================================================ */
@@ -48,11 +51,11 @@
 }
 
 .danger-alert{
-    background-color: #f44336; /* Red */
+    background-color: #f4433698; /* Red */
 }
 
 .success-alert{
-    background-color: #2196F3;
+    background-color: #2195f385;
 }
 
 
@@ -146,10 +149,27 @@ body{
     padding-right: 1rem;
 }
 
-.account-section{
+.account-section{    
     width: 30vw;
     text-align: end;
 }
+
+.account-section ul{
+    justify-content: end;
+}
+.account-section ul li{
+    margin-left: 0.2rem;
+}
+
+.account-section ul li a{
+    text-decoration: none;
+    color: inherit;
+    display:contents;
+    font-size: 1rem;
+}
+
+
+
 footer{
     font-size: .8rem;
     text-align: center;
@@ -281,7 +301,6 @@ footer{
 /* ================================================================= */
 /* =========================== Home Page =========================== */
 /* ================================================================= */
-/* ============================Browse Items =============================*/
 
 main .container-2 {
     margin-top: 2rem;
@@ -341,12 +360,12 @@ main .container-2 .brows-item-photo img {
 width: 100%;
 }
 
-main .container-2 .brows-item-card p {
+/* main .container-2 .brows-item-card p {
 text-align: justify;
 font-size: 0.8rem;
 font-weight: 400;
 color: gray;
-}
+} */
 
 main .container-2 .brows-item-card a{
     text-decoration: none;

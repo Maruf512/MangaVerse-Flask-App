@@ -30,8 +30,18 @@
       </div>
 
       <!-- account section -->
+      
       <div class="account-section" >
-        <p>My Account</p>
+        <ul>
+          {% if user.is_authenticated %}
+          <li><a href="/logout">Logout</a></li>
+          <li><a href="add-manga">Add Manga</a></li>
+          <li><a href="#">Account</a></li>
+          {% else %}
+          <li><a href="/login">Login</a></li>
+          <li><a href="/sign-up">Sign Up</a></li>
+          {% endif %}
+        </ul>
       </div>
 
     </div>
