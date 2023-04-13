@@ -35,7 +35,9 @@
         <ul>
           {% if user.is_authenticated %}
           <li><a href="/logout">Logout</a></li>
-          <li><a href="add-manga">Add Manga</a></li>
+          {% if admin %}
+          <li><a href="/add-manga">Add Manga</a></li>
+          {% endif %}
           <li><a href="#">Account</a></li>
           {% else %}
           <li><a href="/login">Login</a></li>
