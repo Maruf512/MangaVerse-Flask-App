@@ -471,3 +471,37 @@ main .details_container{
     line-height: 1.2rem;
     font-size: 1rem;
 }
+
+/* =========================================================== */
+/* ======================= Add Manga ========================= */
+/* =========================================================== */
+
+.details_container_right h2 input{
+    height: 2rem;
+    width: 40vw;
+    font-size: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 0.4rem;
+}
+
+.information p input{
+    width: 22rem;
+    height: 1.4rem;
+    margin-top: 0.4rem;
+    font-size: 1rem;
+    border-radius: 0.4rem;
+    padding-left: 1rem;
+}
+
+.input_discriotion{
+    width: 59vw;
+    height: 25vh;
+    border-radius: 0.8rem;
+    padding-left: 1rem;
+}
+
+.submit_btn{
+    margin-top: 2rem;
+    border-radius: 0.4rem;
+}

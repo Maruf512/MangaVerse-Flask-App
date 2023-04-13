@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
 import os
 import shutil
@@ -44,20 +44,38 @@ def details(manga_id):
     return render_template("details.html", admin=admin, user=current_user, manga_img=manga_id)
 
 
-@views.route('/add-manga', methods=['GET', 'POST'])
-def add_manga():
+# ===================================================================
+# ========================= Load Manga Image ========================
+# ===================================================================
 
+@views.route('/load-manga-image', methods=['GET', 'POST'])
+def load_manga_image():
     if request.method == 'POST':
         uploaded_file = request.files['cover_img']
         if uploaded_file.filename != '':
+            global img
             img = uploaded_file.filename
             uploaded_file.save(img)
             new_path = "D:\Pton\Flask Web App\website\static\\files\Cover_img\\" + img
             old_path = "D:\Pton\Flask Web App\\" + img
             shutil.move(old_path, new_path)
 
-        return redirect(url_for('views.add_manga'))
-    return render_template("add_manga.html", user=current_user)
+            return redirect(url_for('.add_manga'))
+
+    return render_template("load_manga_image.html", user=current_user)
+
+# ===================================================================
+# ========================= Load Manga Image ========================
+# ===================================================================
+
+
+@views.route('/add-manga')
+def add_manga():
+    return render_template("add_manga.html", user=current_user, manga_img=img)
+
+# ===================================================================
+# ============================ View Manga ===========================
+# ===================================================================
 
 
 @views.route('/next_page')
