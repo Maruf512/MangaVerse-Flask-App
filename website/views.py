@@ -69,8 +69,16 @@ def load_manga_image():
 # ===================================================================
 
 
-@views.route('/add-manga')
+@views.route('/add-manga', methods=['GET', 'POST'])
 def add_manga():
+    if request.method == 'POST':
+        manga_name = request.form.get('name')
+        manga_type = request.form.get('type')
+        manga_authors = request.form.get('authors')
+        manga_published = request.form.get('published')
+        manga_score = request.form.get('score')
+        manga_views = request.form.get('views')
+
     return render_template("add_manga.html", user=current_user, manga_img=img)
 
 # ===================================================================
