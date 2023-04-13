@@ -10,7 +10,7 @@ class Manga_info(db.Model):
     manga_authors = db.Column(db.String(1000))
     manga_publish_date = db.Column(db.String(150))
     manga_rating = db.Column(db.String(150))
-    manga_views = db.Column(db.String(150))
+    manga_status = db.Column(db.String(150))
     manga_description = db.Column(db.String(10000))
     manga_image_id = db.Column(db.String(150))
     manga_user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
 import os
 import shutil
+from .models import Manga_info
+from . import db
 
 views = Blueprint("views", __name__, static_url_path='/static')
 
@@ -73,24 +75,32 @@ def load_manga_image():
 def add_manga():
     if request.method == 'POST':
         # get value from webpage
-        manga_image = img
-        manga_name = request.form.get('name')
-        manga_type = request.form.get('type')
-        manga_authors = request.form.get('authors')
-        manga_published = request.form.get('published')
-        manga_rating = request.form.get('ratings')
-        manga_status = request.form.get('status')
-        manga_discription = request.form.get('discription')
+        manga_image1 = img
+        manga_name1 = request.form.get('name')
+        manga_type1 = request.form.get('type')
+        manga_authors1 = request.form.get('authors')
+        manga_published1 = request.form.get('published')
+        manga_rating1 = request.form.get('ratings')
+        manga_status1 = request.form.get('status')
+        manga_discription1 = request.form.get('discription')
         # save data on a database
-
-        print(manga_image)
-        print(manga_name)
-        print(manga_type)
-        print(manga_authors)
-        print(manga_published)
-        print(manga_rating)
-        print(manga_status)
-        print(manga_discription)
+        manga_rating1 = str(manga_rating1)
+        print(type(manga_status1))
+        if manga_name1 and manga_image1 and manga_type1 and manga_authors1 and manga_published1 and manga_rating1 and manga_status1 and manga_discription1 != "":
+            # send to db
+            new_manga = Manga_info(manga_name=manga_name1, manga_type=manga_type1,
+                                   manga_authors=manga_authors1,
+                                   manga_publish_date=manga_published1,
+                                   manga_rating=manga_rating1,
+                                   manga_status=manga_status1,
+                                   manga_description=manga_discription1,
+                                   manga_image_id=manga_image1,
+                                   manga_user_id=current_user.id)
+            db.session.add(new_manga)
+            db.session.commit()
+            flash("added to database!", category='success')
+        else:
+            flash("Empty Field!", category='error')
 
     return render_template("add_manga.html", user=current_user, manga_img=img)
 
