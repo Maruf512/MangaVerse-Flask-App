@@ -72,12 +72,25 @@ def load_manga_image():
 @views.route('/add-manga', methods=['GET', 'POST'])
 def add_manga():
     if request.method == 'POST':
+        # get value from webpage
+        manga_image = img
         manga_name = request.form.get('name')
         manga_type = request.form.get('type')
         manga_authors = request.form.get('authors')
         manga_published = request.form.get('published')
-        manga_score = request.form.get('score')
-        manga_views = request.form.get('views')
+        manga_rating = request.form.get('ratings')
+        manga_status = request.form.get('status')
+        manga_discription = request.form.get('discription')
+        # save data on a database
+
+        print(manga_image)
+        print(manga_name)
+        print(manga_type)
+        print(manga_authors)
+        print(manga_published)
+        print(manga_rating)
+        print(manga_status)
+        print(manga_discription)
 
     return render_template("add_manga.html", user=current_user, manga_img=img)
 

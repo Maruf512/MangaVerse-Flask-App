@@ -1,5 +1,9 @@
-
-
+/* =============================================================== */
+/* ===================== customize input fields ================== */
+/* =============================================================== */
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
 
 /* ================================================================ */
 /* ============================ Scroll bar ======================== */
@@ -455,13 +459,13 @@ main .details_container{
 }
 
 .details_container_right .discription{
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-right: 1rem;
 }
 
 .discription h4{
     font-size: 1.4rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 
 }
 
@@ -480,9 +484,9 @@ main .details_container{
     height: 2rem;
     width: 40vw;
     font-size: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0.2rem;
     border-radius: 0.4rem;
+    color: #888;
 }
 
 .information p input{
@@ -491,17 +495,21 @@ main .details_container{
     margin-top: 0.4rem;
     font-size: 1rem;
     border-radius: 0.4rem;
-    padding-left: 1rem;
+    padding: 0.2rem;
+    color: #888;
 }
 
 .input_discriotion{
-    width: 59vw;
-    height: 25vh;
+    width: 58vw;
+    height: 22vh;
     border-radius: 0.8rem;
-    padding-left: 1rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+    color: #888;
+    text-align: justify;
 }
 
 .submit_btn{
-    margin-top: 2rem;
+    margin-top: 1rem;
     border-radius: 0.4rem;
 }
