@@ -69,3 +69,14 @@ def sign_up():
             return redirect(url_for('views.home'))
 
     return render_template("sign_up.html", user=current_user)
+
+
+# ===================================================================
+# ============================ Delet User ===========================
+# ===================================================================
+
+@auth.post('delete/<int:manga_id>')
+def delete_user(manga_id):
+    delet_manga = Manga_info.query.get_or_404(manga_id)
+    db.session.delete(delet_manga)
+    db.session.commit()

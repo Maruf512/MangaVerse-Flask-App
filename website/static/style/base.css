@@ -101,7 +101,6 @@ color: #ffffff;
 body{
     background-color: rgba(35, 37, 37, 0.850);
     color: rgba(255, 255, 255, 0.7);
-
 }
 
 .navbar{
@@ -513,3 +512,35 @@ main .details_container{
     margin-top: 1rem;
     border-radius: 0.4rem;
 }
+
+
+/* ================================================================= */
+/* ======================= Load Image ============================== */
+/* ================================================================= */
+.load_image{
+    margin: 2rem;
+    height: 78vh;
+    padding: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(35, 37, 37, 0.850);
+    border-radius: 1rem;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.load_image h2{
+    margin-bottom: 8vh;
+    margin-top: 4vh;
+}
+
+
+.chose_img{
+    margin: auto;
+    width: 50%;
+    display: flex;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+
+}
+

@@ -11,13 +11,13 @@
     <div class="container-2">
         <div class="brows-item-cards">
             <!-- Card 1 -->
-            {% for i in user.manga %}
+            {% for manga in data %}
             <div class="brows-item-card">
                 <div class="brows-item-photo">
-                    <img src="static/files\Cover_img/{{i.manga_image_id}}" />
+                    <img src="static/files\Cover_img/{{manga.manga_image_id}}" />
                 </div>
-                <a href="manga/{{i.id}}">
-                    <h2>{{ i.manga_name.capitalize() }}</h2>
+                <a href="manga/{{manga.id}}">
+                    <h2>{{ manga.manga_name.capitalize() }}</h2>
                 </a>
             </div>
             {% endfor %}

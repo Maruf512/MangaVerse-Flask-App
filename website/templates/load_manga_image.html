@@ -3,25 +3,17 @@
 
 {% block content %}
 
-<main>
-        <!-- main container -->
-        <div class="details_container">
-            
-            <!-- Details Left Side -->
-            <div class="details_container_left">
-                {% if manga_img %}
-                    <img src="{{ url_for('static', filename='files/Cover_img/' + manga_img)}}" alt="Cover Image">
-                {% endif %}
-            </div>
-            <!-- Details Right Side -->
-            <div class="details_container_right">
-                <form method="POST" enctype="multipart/form-data">
-                    <p><input type="file" name="cover_img"></p>
-                    <p><input type="submit" value="Submit"></p>
-                </form>
-            </div>
+
+<!-- main container -->
+<div class="load_image">
+    <h2>Select a Cover Image for Manga</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="chose_img">
+            <input type="file" name="cover_img">
         </div>
-    </div>
-</main>
+        <p><input class="btn btn-primary" type="submit" value="Submit"></p>
+    </form>
+</div>
+
 
 {% endblock %}

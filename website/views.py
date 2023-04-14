@@ -23,7 +23,9 @@ def home():
     else:
         admin = False
 
-    return render_template("home.html", user=current_user, admin=admin)
+    data = Manga_info.query.all()
+
+    return render_template("home.html", user=current_user, admin=admin, data=data)
 
 
 @views.route('/view')
@@ -98,7 +100,6 @@ def add_manga():
                                    manga_status=manga_status1,
                                    manga_description=manga_discription1,
                                    manga_image_id=manga_image1,
-                                   manga_user_id=current_user.id,
                                    )
             db.session.add(new_manga)
             db.session.commit()
@@ -107,6 +108,18 @@ def add_manga():
             flash("Empty Field!", category='error')
 
     return render_template("add_manga.html", user=current_user, manga_img=img)
+
+# ===================================================================
+# ============================ Delet Manga ===========================
+# ===================================================================
+
+
+@views.post('delete/<int:student_id>')
+def delete_manga(student_id):
+    delet_manga = Manga_info.query.get_or_404(student_id)
+    db.session.delete(delet_manga)
+    db.session.commit()
+
 
 # ===================================================================
 # ============================ View Manga ===========================
