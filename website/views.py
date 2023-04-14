@@ -8,11 +8,11 @@ from . import db
 views = Blueprint("views", __name__, static_url_path='/static')
 
 
-names = ["Solo Leveling", "Demon Slayer", "Attack on Titan", "Vinland Saga", "Violet Evergarden", "The time i got reincarnated as a slime", "Konosuba",
-         "Darling in the Franxx", "Your lie in April", "Your Name", "Hunter x Hunter", "My Hero academia", "One Piece", "The 100 Girlftiends who really really love you"]
+# names = ["Solo Leveling", "Demon Slayer", "Attack on Titan", "Vinland Saga", "Violet Evergarden", "The time i got reincarnated as a slime", "Konosuba",
+#          "Darling in the Franxx", "Your lie in April", "Your Name", "Hunter x Hunter", "My Hero academia", "One Piece", "The 100 Girlftiends who really really love you"]
 
-image_link = ["solo_leveling.jpg", "demon_slayer.jpg", "attack_on_titan.jpg", "vinland_saga.jpg", "violet_evergarden.jpg", "the_time_i_got_reincarnated_as_a_slime.jpg", "konosuba.jpg",
-              "darling_in_the_franxx.jpg", "your_lie_in_april.jpg", "your_name.jpg", "hunter_x_hunter.jpg", "my_hero_academia.jpg", "one_piece.jpg", "The 100 Girlfriends who.jpg"]
+# image_link = ["solo_leveling.jpg", "demon_slayer.jpg", "attack_on_titan.jpg", "vinland_saga.jpg", "violet_evergarden.jpg", "the_time_i_got_reincarnated_as_a_slime.jpg", "konosuba.jpg",
+#               "darling_in_the_franxx.jpg", "your_lie_in_april.jpg", "your_name.jpg", "hunter_x_hunter.jpg", "my_hero_academia.jpg", "one_piece.jpg", "The 100 Girlfriends who.jpg"]
 
 
 @views.route('/')
@@ -23,7 +23,7 @@ def home():
     else:
         admin = False
 
-    return render_template("home.html", user=current_user, admin=admin, names_len=len(names), Name=names, images=image_link, Details="anime details")
+    return render_template("home.html", user=current_user, admin=admin)
 
 
 @views.route('/view')
@@ -43,7 +43,9 @@ def details(manga_id):
     else:
         admin = False
 
-    return render_template("details.html", admin=admin, user=current_user, manga_img=manga_id)
+    data = Manga_info.query.filter_by(id=manga_id).first()
+
+    return render_template("details.html", admin=admin, user=current_user, data=data)
 
 
 # ===================================================================
@@ -67,7 +69,7 @@ def load_manga_image():
     return render_template("load_manga_image.html", user=current_user)
 
 # ===================================================================
-# ========================= Load Manga Image ========================
+# ============================ Add Manga  ===========================
 # ===================================================================
 
 
@@ -88,14 +90,16 @@ def add_manga():
         print(type(manga_status1))
         if manga_name1 and manga_image1 and manga_type1 and manga_authors1 and manga_published1 and manga_rating1 and manga_status1 and manga_discription1 != "":
             # send to db
-            new_manga = Manga_info(manga_name=manga_name1, manga_type=manga_type1,
+            new_manga = Manga_info(manga_name=manga_name1,
+                                   manga_type=manga_type1,
                                    manga_authors=manga_authors1,
                                    manga_publish_date=manga_published1,
                                    manga_rating=manga_rating1,
                                    manga_status=manga_status1,
                                    manga_description=manga_discription1,
                                    manga_image_id=manga_image1,
-                                   manga_user_id=current_user.id)
+                                   manga_user_id=current_user.id,
+                                   )
             db.session.add(new_manga)
             db.session.commit()
             flash("added to database!", category='success')

@@ -14,7 +14,6 @@ class Manga_info(db.Model):
     manga_description = db.Column(db.String(10000))
     manga_image_id = db.Column(db.String(150))
     manga_user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
     upload_date = db.Column(db.DateTime(timezone=True), default=func.now())
 
 

@@ -1,6 +1,6 @@
 
 {% extends "base.html" %}
-{% block title %}Details- {{manga_img.split(".")[0].replace("_", " ")}}{% endblock %}
+{% block title %}Details- {{data.manga_name.split(".")[0].replace("_", " ")}}{% endblock %}
 
 {% block content %}
 
@@ -11,20 +11,19 @@
         <!-- Details Left Side -->
         <div class="details_container_left">
 
-            <img src="{{ url_for('static', filename='files/Cover_img/' + manga_img)}}" alt="Cover Image">
+            <img src="{{ url_for('static', filename='files/Cover_img/' + data.manga_image_id)}}" alt="Cover Image">
 
         </div>
 
         <!-- Details Right Side -->
         <div class="details_container_right">
-            <h2>{{manga_img.split(".")[0].replace("_", " ").upper()}}</h2>
+            <h2>{{data.manga_name.split(".")[0].replace("_", " ").upper()}}</h2>
             <div class="information">
-                <p>Type: Manhwa</p>
-                <p>Authors: Chugong (Story), Jang,Sung-rak(Art)</p>
-                <p>Published: Mar 4, 2018 to ?</p>
-                <p>Ratings: 8.87</p>
-                <p>Views: 2,796,226</p>
-                <p>Status: Ongoing</p>
+                <p>Type: {{ data.manga_type }}</p>
+                <p>Authors: {{ data.manga_authors }}</p>
+                <p>Published: {{ data.manga_publish_date }}</p>
+                <p>Status: {{ data.manga_status }}</p>
+                <p>Ratings: {{ data.manga_rating }}</p>
             </div>
             <div class="detail_buttons">
                 <a href="#" class="btn btn-primary buttons">Read First</a>
@@ -33,8 +32,8 @@
             <div class="discription">
                 <h4>Description</h4>
     
-                <p>10 years ago, after “the Gate” that connected the real world with the monster world opened, some of the ordinary, everyday people received the power to hunt monsters within the Gate. They are known as “Hunters”. However, not all Hunters are powerful. My name is Sung Jin-Woo, an E-rank Hunter. I’m someone who has to risk his life in the lowliest of dungeons, the “World’s Weakest”. Having no skills whatsoever to display, I barely earned the required money by fighting in low-leveled dungeons… at least until I found a hidden dungeon with the hardest difficulty within the D-rank dungeons! In the end, as I was accepting death, I suddenly received a strange power, a quest log that only I could see, a secret to leveling up that only I know about! If I trained in accordance with my quests and hunted monsters, my level would rise. Changing from the weakest Hunter to the strongest S-rank Hunter!
-                </p>
+                <p>{{ data.manga_description }}</p>
+
             </div>
 
 
