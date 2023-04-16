@@ -17,7 +17,16 @@
 
         <!-- Details Right Side -->
         <div class="details_container_right">
+
+            {% if admin %}
+            <div class="admin_edit">
+                <a href="admin_delet_manga"><img src="{{ url_for('static', filename='image/edit.png')}}" width="32px" alt="edit"></a>
+                <a href="admin_edit_manga"><img src="{{ url_for('static', filename='image/close.png')}}" width="32px" alt="close"></a>
+            </div>
+            {% endif %}
+
             <h2>{{data.manga_name.split(".")[0].replace("_", " ").upper()}}</h2>
+            <hr>
             <div class="information">
                 <p>Type: {{ data.manga_type }}</p>
                 <p>Authors: {{ data.manga_authors }}</p>

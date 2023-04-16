@@ -402,6 +402,7 @@ main .details_container{
     margin: 1rem;
     border-radius: 26px;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 .details_container_left{
@@ -413,7 +414,22 @@ main .details_container{
     display: flex;
     justify-content: center;
     overflow: hidden;
+    
 }
+
+.admin_edit{
+    position: absolute;
+    right: 2%;
+    top: 2%;
+}
+
+.admin_edit a:first-child{
+    margin-right: 4px;
+}
+.admin_edit a img{
+    color: whitesmoke;
+}
+
 
 .details_container_left img{
     width: 420px;
@@ -428,8 +444,14 @@ main .details_container{
 }
 
 .details_container_right h2 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    width: 88%;
+}
+
+.details_container_right hr{
+    margin-top: 0.8rem;
+    margin-bottom: 2rem;
+    width: 88%;
 }
 
 .details_container_right .information{
