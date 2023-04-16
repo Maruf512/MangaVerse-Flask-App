@@ -4,24 +4,16 @@ import os
 import shutil
 from .models import Manga_info
 from . import db
+from . import admin_authorization
 
 views = Blueprint("views", __name__, static_url_path='/static')
-
-
-# names = ["Solo Leveling", "Demon Slayer", "Attack on Titan", "Vinland Saga", "Violet Evergarden", "The time i got reincarnated as a slime", "Konosuba",
-#          "Darling in the Franxx", "Your lie in April", "Your Name", "Hunter x Hunter", "My Hero academia", "One Piece", "The 100 Girlftiends who really really love you"]
-
-# image_link = ["solo_leveling.jpg", "demon_slayer.jpg", "attack_on_titan.jpg", "vinland_saga.jpg", "violet_evergarden.jpg", "the_time_i_got_reincarnated_as_a_slime.jpg", "konosuba.jpg",
-#               "darling_in_the_franxx.jpg", "your_lie_in_april.jpg", "your_name.jpg", "hunter_x_hunter.jpg", "my_hero_academia.jpg", "one_piece.jpg", "The 100 Girlfriends who.jpg"]
 
 
 @views.route('/')
 @login_required
 def home():
-    if current_user.email == "marufsarkar512@gmail.com":
-        admin = True
-    else:
-        admin = False
+    # give access to admin
+    admin = admin_authorization.get_access(current_user.email)
 
     data = Manga_info.query.all()
 
@@ -30,20 +22,16 @@ def home():
 
 @views.route('/view')
 def view():
-    if current_user.email == "marufsarkar512@gmail.com":
-        admin = True
-    else:
-        admin = False
+    # give access to admin
+    admin = admin_authorization.get_access(current_user.email)
 
     return render_template("view_page.html", admin=admin, user=current_user)
 
 
 @views.route('manga/<manga_id>')
 def details(manga_id):
-    if current_user.email == "marufsarkar512@gmail.com":
-        admin = True
-    else:
-        admin = False
+    # give access to admin
+    admin = admin_authorization.get_access(current_user.email)
 
     data = Manga_info.query.filter_by(id=manga_id).first()
 
