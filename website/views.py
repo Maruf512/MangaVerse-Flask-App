@@ -67,27 +67,27 @@ def load_manga_image():
 def add_manga():
     if request.method == 'POST':
         # get value from webpage
-        manga_image1 = img
-        manga_name1 = request.form.get('name')
-        manga_type1 = request.form.get('type')
-        manga_authors1 = request.form.get('authors')
-        manga_published1 = request.form.get('published')
-        manga_rating1 = request.form.get('ratings')
-        manga_status1 = request.form.get('status')
-        manga_discription1 = request.form.get('discription')
+        manga_image = img
+        manga_name = request.form.get('name')
+        manga_type = request.form.get('type')
+        manga_authors = request.form.get('authors')
+        manga_published = request.form.get('published')
+        manga_rating = request.form.get('ratings')
+        manga_status = request.form.get('status')
+        manga_discription = request.form.get('discription')
         # save data on a database
-        manga_rating1 = str(manga_rating1)
-        print(type(manga_status1))
-        if manga_name1 and manga_image1 and manga_type1 and manga_authors1 and manga_published1 and manga_rating1 and manga_status1 and manga_discription1 != "":
+        manga_rating = str(manga_rating1)
+
+        if manga_name and manga_image and manga_type and manga_authors and manga_published and manga_rating and manga_status and manga_discription != "":
             # send to db
-            new_manga = Manga_info(manga_name=manga_name1,
-                                   manga_type=manga_type1,
-                                   manga_authors=manga_authors1,
-                                   manga_publish_date=manga_published1,
-                                   manga_rating=manga_rating1,
-                                   manga_status=manga_status1,
-                                   manga_description=manga_discription1,
-                                   manga_image_id=manga_image1,
+            new_manga = Manga_info(manga_name=manga_name,
+                                   manga_type=manga_type,
+                                   manga_authors=manga_authors,
+                                   manga_publish_date=manga_published,
+                                   manga_rating=manga_rating,
+                                   manga_status=manga_status,
+                                   manga_description=manga_discription,
+                                   manga_image_id=manga_image,
                                    )
             db.session.add(new_manga)
             db.session.commit()
@@ -104,9 +104,15 @@ def add_manga():
 
 @views.route('delete/<manga_id>')
 def delete_manga(manga_id):
+
+    data = Manga_info.query.filter_by(id=manga_id).first()
+    delete_manga_img = f"{os.getcwd()}/website/static/files/Cover_img/{data.manga_image_id}"
+    os.remove(delete_manga_img)
+
     delet_manga = Manga_info.query.get_or_404(manga_id)
     db.session.delete(delet_manga)
     db.session.commit()
+
     flash(f"Erased from database!!", category="success")
     return redirect(url_for('.home'))
 
@@ -116,9 +122,44 @@ def delete_manga(manga_id):
 # ===================================================================
 
 
-@views.route('edit/<manga_id>')
+@views.route('edit/<manga_id>', methods=['GET', 'POST'])
 def edit_manga(manga_id):
-    return redirect(url_for('.home'))
+    data = Manga_info.query.filter_by(id=manga_id).first()
+
+    if request.method == 'POST':
+        # get value from webpage
+        # manga_image = img
+        manga_name = request.form.get('name')
+        manga_type = request.form.get('type')
+        manga_authors = request.form.get('authors')
+        manga_published = request.form.get('published')
+        manga_rating = request.form.get('ratings')
+        manga_status = request.form.get('status')
+        manga_discription = request.form.get('discription')
+        # save data on a database
+        manga_rating = str(manga_rating)
+
+        if manga_name != "":
+            data.manga_name = manga_name
+        if manga_type != "":
+            data.manga_type = manga_type
+
+        if manga_authors != "":
+            data.manga_authors = manga_authors
+        if manga_published != "":
+            data.manga_publish_date = manga_published
+        if manga_rating != "":
+            data.manga_rating = manga_rating
+        if manga_status != "":
+            data.manga_status = manga_status
+        if manga_discription != "":
+            data.manga_description = manga_discription
+
+        db.session.commit()
+
+        return redirect(url_for('.home'))
+
+    return render_template('add_manga.html', user=current_user, manga_img=data.manga_image_id)
 
 
 # ===================================================================
