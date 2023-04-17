@@ -3,6 +3,13 @@ from flask_login import UserMixin
 from sqlalchemy.sql import func
 
 
+class Manga_chapters(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    manga_name = db.Column(db.String(1000))
+    chapter_name = db.Column(db.String(1000))
+    manga_id = db.Column(db.Integer, db.ForeignKey('manga_info.id'))
+
+
 class Manga_info(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     manga_name = db.Column(db.String(1000))
@@ -14,14 +21,7 @@ class Manga_info(db.Model):
     manga_description = db.Column(db.String(10000))
     manga_image_id = db.Column(db.String(150))
     upload_date = db.Column(db.DateTime(timezone=True), default=func.now())
-    chapters = db.relationship('manga_chapters', backref='manga_info')
-
-
-class Manga_chapters(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    manga_name = db.Column(db.String(1000))
-    chapter_name = db.Column(db.String(1000))
-    manga_id = db.Column(db.Integer, db.ForeignKey('manga_info.id'))
+    chapters = db.relationship('Manga_chapters')
 
 
 class User(db.Model, UserMixin):

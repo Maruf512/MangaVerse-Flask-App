@@ -55,25 +55,14 @@
         <div class="chapters">
             <hr>
             <ul class="chapter_list">
+                {% for chapter in data.chapters %}
                 <li>
                     <div class="chapter">
-                        <p>1</p>
-                        <p><a href="#">Chapter 1</a></p>
+                        <p>{{ chapter.id }}</p>
+                        <p><a href="#">{{ chapter.chapter_name }}</a></p>
                     </div>
                 </li>
-                <li>
-                    <div class="chapter">
-                        <p>2</p>
-                        <p><a href="#">Chapter 2</a></p>
-                    </div>
-                </li>
-                <li>
-                    <div class="chapter">
-                        <p>3</p>
-                        <p><a href="#">Chapter 3</a></p>
-                    </div>
-                </li>
-
+                {% endfor %}
 
             </ul>
         </div>

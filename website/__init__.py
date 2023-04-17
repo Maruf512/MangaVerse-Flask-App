@@ -20,7 +20,7 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
 
     # create Database
-    from .models import User, Manga_info
+    from .models import User, Manga_info, Manga_chapters
     create_database(app=app)
 
     login_manager = LoginManager()

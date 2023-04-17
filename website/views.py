@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
 import os
 import shutil
-from .models import Manga_info
+from .models import Manga_info, Manga_chapters
 from . import db
 from . import admin_authorization
 
@@ -26,6 +26,10 @@ def view():
     admin = admin_authorization.get_access(current_user.email)
 
     return render_template("view_page.html", admin=admin, user=current_user)
+
+# ===================================================================
+# ========================== Manga details ==========================
+# ===================================================================
 
 
 @views.route('manga/<manga_id>')
@@ -65,6 +69,13 @@ def load_manga_image():
 
 @views.route('/add-manga', methods=['GET', 'POST'])
 def add_manga():
+
+    # =================== add chapter ========================
+    # new_chapter = Manga_chapters(
+    #     manga_name="solo leveling", chapter_name="chapter 2", manga_id=manga_id)
+    # db.session.add(new_chapter)
+    # db.session.commit()
+
     if request.method == 'POST':
         # get value from webpage
         manga_image = img
@@ -76,7 +87,7 @@ def add_manga():
         manga_status = request.form.get('status')
         manga_discription = request.form.get('discription')
         # save data on a database
-        manga_rating = str(manga_rating1)
+        manga_rating = str(manga_rating)
 
         if manga_name and manga_image and manga_type and manga_authors and manga_published and manga_rating and manga_status and manga_discription != "":
             # send to db
@@ -92,6 +103,7 @@ def add_manga():
             db.session.add(new_manga)
             db.session.commit()
             flash("added to database!", category='success')
+            return redirect(url_for('.home'))
         else:
             flash("Empty Field!", category='error')
 
