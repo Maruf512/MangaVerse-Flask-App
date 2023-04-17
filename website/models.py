@@ -13,8 +13,15 @@ class Manga_info(db.Model):
     manga_status = db.Column(db.String(150))
     manga_description = db.Column(db.String(10000))
     manga_image_id = db.Column(db.String(150))
-    # manga_user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     upload_date = db.Column(db.DateTime(timezone=True), default=func.now())
+    chapters = db.relationship('manga_chapters', backref='manga_info')
+
+
+class Manga_chapters(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    manga_name = db.Column(db.String(1000))
+    chapter_name = db.Column(db.String(1000))
+    manga_id = db.Column(db.Integer, db.ForeignKey('manga_info.id'))
 
 
 class User(db.Model, UserMixin):
@@ -22,4 +29,3 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
-    # manga = db.relationship('Manga_info')
