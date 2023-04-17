@@ -503,11 +503,19 @@ main .chapter_container{
     margin: 1rem;
     border-radius: 26px;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 .chapter_container h2 {
     margin-bottom: 0.4rem;
 }
+
+.admin_edit_chapter {
+    position: absolute;
+    right: 1rem;
+    top: 0.4rem;
+}
+
 
 .chapter_container .chapters ul li .chapter{
     display: flex;

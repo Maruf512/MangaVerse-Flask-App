@@ -120,11 +120,16 @@ def add_manga():
 # ============================ Add Chapter ==========================
 # ===================================================================
 
-# new_chapter = Manga_chapters(
-#     manga_name="solo leveling", chapter_name="chapter 2", manga_id=manga_id)
-# db.session.add(new_chapter)
-# db.session.commit()
+@views.route('/add_chapter/<manga_id>')
+def add_chapter(manga_id):
 
+    # add to database
+    # new_chapter = Manga_chapters(
+    # manga_name="solo leveling", chapter_name="chapter 2", manga_id=manga_id)
+    # db.session.add(new_chapter)
+    # db.session.commit()
+
+    return render_template('add_chapter.html', user=current_user)
 
 # ===================================================================
 # ============================ Delet Manga ==========================

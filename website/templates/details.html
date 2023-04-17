@@ -1,6 +1,6 @@
 
 {% extends "base.html" %}
-{% block title %}Details- {{data.manga_name.split(".")[0].replace("_", " ")}}{% endblock %}
+{% block title %}Details- {{data.manga_name.split(".")[0].replace("_", " ").upper()}}{% endblock %}
 
 {% block content %}
 
@@ -52,6 +52,11 @@
 
     <div class="chapter_container">
         <h2>Chapters</h2>
+        {% if admin %}
+        <div class="admin_edit_chapter">
+            <a href="/add_chapter/{{data.id}}"><img src="{{ url_for('static', filename='image/edit.png')}}"width="32px" alt="edit"></a>
+        </div>
+        {% endif %}
         <div class="chapters">
             <hr>
             <ul class="chapter_list">
