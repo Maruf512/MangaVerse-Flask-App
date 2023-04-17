@@ -497,6 +497,39 @@ main .details_container{
     font-size: 1rem;
 }
 
+main .chapter_container{
+    background-color: rgba(35, 37, 37, 0.850);
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 26px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.chapter_container h2 {
+    margin-bottom: 0.4rem;
+}
+
+.chapter_container .chapters ul li .chapter{
+    display: flex;
+    height: 2.4rem;
+    background-color: rgba(65, 68, 68, 0.6);
+    margin-top: 0.8rem;
+    font-size: 1.2rem;
+    align-items: center;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.chapter_container .chapters ul li .chapter p a{
+    text-decoration: none;
+    color: inherit;
+    margin-left: 1rem;
+}
+
+
+
+
+
 /* =========================================================== */
 /* ======================= Add Manga ========================= */
 /* =========================================================== */
