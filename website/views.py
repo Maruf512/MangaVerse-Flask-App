@@ -69,13 +69,6 @@ def load_manga_image():
 
 @views.route('/add-manga', methods=['GET', 'POST'])
 def add_manga():
-
-    # =================== add chapter ========================
-    # new_chapter = Manga_chapters(
-    #     manga_name="solo leveling", chapter_name="chapter 2", manga_id=manga_id)
-    # db.session.add(new_chapter)
-    # db.session.commit()
-
     if request.method == 'POST':
         # get value from webpage
         manga_image = img
@@ -102,6 +95,19 @@ def add_manga():
                                    )
             db.session.add(new_manga)
             db.session.commit()
+
+            # create directory for all the chapters
+            data = Manga_info.query.filter_by(manga_name=manga_name).first()
+            directory = f"{data.manga_name}({data.id})"
+            manga_dir = f"{os.getcwd()}/website/static/files/Manga_chapters/{directory}"
+            print("=============================================================")
+            print(manga_dir)
+            print("=============================================================")
+            if os.path.isdir(manga_dir):
+                pass
+            else:
+                os.mkdir(manga_dir)
+
             flash("added to database!", category='success')
             return redirect(url_for('.home'))
         else:
@@ -109,8 +115,19 @@ def add_manga():
 
     return render_template("add_manga.html", user=current_user, manga_img=img)
 
+
 # ===================================================================
-# ============================ Delet Manga ===========================
+# ============================ Add Chapter ==========================
+# ===================================================================
+
+# new_chapter = Manga_chapters(
+#     manga_name="solo leveling", chapter_name="chapter 2", manga_id=manga_id)
+# db.session.add(new_chapter)
+# db.session.commit()
+
+
+# ===================================================================
+# ============================ Delet Manga ==========================
 # ===================================================================
 
 
