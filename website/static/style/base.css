@@ -287,11 +287,13 @@ footer{
 .signup_input{
     font-size: 1rem;
     border: 0;
-    border-radius: 1rem;
+    border-radius: 0.6rem;
     width: 94%;
     height: 2rem;
     margin-bottom: 1rem;
     padding: 0.4rem;
+    padding-left: 1rem;
+
 }
 
 .signup_btn{
@@ -425,9 +427,6 @@ main .details_container{
 
 .admin_edit a:first-child{
     margin-right: 4px;
-}
-.admin_edit a img{
-    color: whitesmoke;
 }
 
 

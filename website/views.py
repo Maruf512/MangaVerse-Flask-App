@@ -102,11 +102,23 @@ def add_manga():
 # ===================================================================
 
 
-@views.post('delete/<int:student_id>')
-def delete_manga(student_id):
-    delet_manga = Manga_info.query.get_or_404(student_id)
+@views.route('delete/<manga_id>')
+def delete_manga(manga_id):
+    delet_manga = Manga_info.query.get_or_404(manga_id)
     db.session.delete(delet_manga)
     db.session.commit()
+    flash(f"Erased from database!!", category="success")
+    return redirect(url_for('.home'))
+
+
+# ===================================================================
+# ============================ Edit Manga ===========================
+# ===================================================================
+
+
+@views.route('edit/<manga_id>')
+def edit_manga(manga_id):
+    return redirect(url_for('.home'))
 
 
 # ===================================================================
