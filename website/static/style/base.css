@@ -611,5 +611,50 @@ main .chapter_container{
 
 .add_manga_container{
     padding: 14px;
+    background-color: rgba(35, 37, 37, 0.850);
+    margin: 1rem;
+    border-radius: 26px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
+.add_manga_container h2{
+    margin-bottom: 0.8rem;
+}
+.add_manga_container hr{
+    margin-bottom: 2rem;
+}
+.add_chapter form{
+    text-align: left;
+}
+
+.add_chapter p:first-child{
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.add_chapter p:first-child input{
+    font-size: 1rem;
+    height: 1.2rem;
+    width: 20%;
+    margin-left: 0.6rem;
+}
+
+.add_chapter .load_img{
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    
+}
+
+.add_chapter p:nth-child(2){
+    font-size: 1.2rem;
+}
+
+.add_chapter p:nth-child(2) input{
+    margin-left: 0.6rem;
+}
+
+
+.add_chapter p:last-child{
+    text-align: center;
+}

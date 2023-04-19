@@ -54,11 +54,14 @@ def load_manga_image():
             global img
             img = uploaded_file.filename
             uploaded_file.save(img)
-            new_path = "D:\Pton\Flask Web App\website\static\\files\Cover_img\\" + img
-            old_path = "D:\Pton\Flask Web App\\" + img
+            # move files to storage directory
+            new_path = f"{os.getcwd()}/website/static/files/Cover_img/{img}"
+            old_path = f"{os.getcwd()}/{img}"
             shutil.move(old_path, new_path)
 
             return redirect(url_for('.add_manga'))
+        else:
+            flash("Chose an Image!", category='error')
 
     return render_template("load_manga_image.html", user=current_user)
 
@@ -100,9 +103,6 @@ def add_manga():
             data = Manga_info.query.filter_by(manga_name=manga_name).first()
             directory = f"{data.manga_name}({data.id})"
             manga_dir = f"{os.getcwd()}/website/static/files/Manga_chapters/{directory}"
-            print("=============================================================")
-            print(manga_dir)
-            print("=============================================================")
             if os.path.isdir(manga_dir):
                 pass
             else:
@@ -120,16 +120,35 @@ def add_manga():
 # ============================ Add Chapter ==========================
 # ===================================================================
 
-@views.route('/add_chapter/<manga_id>')
+@views.route('/add_chapter/<manga_id>', methods=['GET', 'POST'])
 def add_chapter(manga_id):
-
-    # add to database
-    # new_chapter = Manga_chapters(
-    # manga_name="solo leveling", chapter_name="chapter 2", manga_id=manga_id)
-    # db.session.add(new_chapter)
-    # db.session.commit()
-
+    # get data from database
     data = Manga_info.query.filter_by(id=manga_id).first()
+
+    if request.method == 'POST':
+        # get data from web page
+        chapter_name = request.form.get('chapter_name')
+        uploaded_file = request.files['chapter_img']
+
+        # check if image field is empty
+        if uploaded_file.filename == '' or chapter_name == '':
+            flash("Empty fields Detected!", category="error")
+        else:
+            chapter_image = uploaded_file.filename
+            # Uplode file
+            uploaded_file.save(chapter_image)
+            directory = f"{data.manga_name}({data.id})"
+            new_path = f"{os.getcwd()}/website/static/files/Manga_chapters/{directory}/{chapter_image}"
+            old_path = f"{os.getcwd()}/{chapter_image}"
+            shutil.move(old_path, new_path)
+
+            # add to database
+            new_chapter = Manga_chapters(
+                manga_name=data.manga_name, chapter_name=chapter_name, manga_id=manga_id)
+            db.session.add(new_chapter)
+            db.session.commit()
+
+            return redirect(url_for('.add_chapter/<manga_id>'))
 
     return render_template('add_chapter.html', user=current_user, data=data)
 

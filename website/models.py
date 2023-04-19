@@ -7,6 +7,7 @@ class Manga_chapters(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     manga_name = db.Column(db.String(1000))
     chapter_name = db.Column(db.String(1000))
+    chapter_img_link = db.Column(db.String(1000))
     manga_id = db.Column(db.Integer, db.ForeignKey('manga_info.id'))
 
 
