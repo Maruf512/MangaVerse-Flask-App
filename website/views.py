@@ -234,14 +234,30 @@ def read_manga(chapter_id):
     img_dir = img_path[-2]
     img_name = img_path[-1]
 
-    return render_template("read_page.html", admin=admin, user=current_user, img_dir=img_dir, img_name=img_name)
+    return render_template("read_page.html", admin=admin, user=current_user, img_dir=img_dir, img_name=img_name, manga_name=chapter.manga_name, chapter_name=chapter.chapter_name, chapter_id=chapter_id)
 
 
-@views.route('/next_page')
-def next_page():
-    return read_manga()
+@views.route('/next/<chapter_id>')
+def next_page(chapter_id):
+    chapter_id = chapter_id = int(chapter_id) + 1
+
+    # get data from database
+    chapter = Manga_chapters.query.filter_by(id=chapter_id).first()
+
+    if chapter:
+        return redirect(url_for("views.read_manga", chapter_id=chapter_id))
+    else:
+        manga = Manga_chapters.query.filter_by(id=chapter_id-1).first()
+        return redirect(url_for("views.details", manga_id=manga.manga_id))
 
 
-@views.route('/previous_page')
-def previous_page():
-    return read_manga()
+@views.route('/previous/<chapter_id>')
+def previous_page(chapter_id):
+    chapter_id = chapter_id = int(chapter_id) - 1
+
+    # get data from database
+    chapter = Manga_chapters.query.filter_by(id=chapter_id).first()
+    if chapter:
+        return redirect(url_for("views.read_manga", chapter_id=chapter_id))
+    else:
+        return redirect(url_for("views.read_manga", chapter_id=chapter_id + 1))
