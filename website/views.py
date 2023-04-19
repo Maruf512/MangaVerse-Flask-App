@@ -134,21 +134,31 @@ def add_chapter(manga_id):
         if uploaded_file.filename == '' or chapter_name == '':
             flash("Empty fields Detected!", category="error")
         else:
-            chapter_image = uploaded_file.filename
-            # Uplode file
-            uploaded_file.save(chapter_image)
-            directory = f"{data.manga_name}({data.id})"
-            new_path = f"{os.getcwd()}/website/static/files/Manga_chapters/{directory}/{chapter_image}"
-            old_path = f"{os.getcwd()}/{chapter_image}"
-            shutil.move(old_path, new_path)
+            # check if chapter exitsts or not
+            chapter = Manga_chapters.query.filter_by(
+                chapter_name=chapter_name).first()
 
-            # add to database
-            new_chapter = Manga_chapters(
-                manga_name=data.manga_name, chapter_name=chapter_name, manga_id=manga_id)
-            db.session.add(new_chapter)
-            db.session.commit()
+            if chapter:
+                if chapter.chapter_name.lower() == chapter_name.lower():
+                    flash('Email already exists or Change the Chapter Name',
+                          category='error')
 
-            return redirect(url_for('.add_chapter/<manga_id>'))
+            else:
+                chapter_image = uploaded_file.filename
+                # Uplode file
+                uploaded_file.save(chapter_image)
+                directory = f"{data.manga_name}({data.id})"
+                new_path = f"{os.getcwd()}/website/static/files/Manga_chapters/{directory}/{f'{chapter_name}.jpg'}"
+                old_path = f"{os.getcwd()}/{chapter_image}"
+                shutil.move(old_path, new_path)
+
+                # add to database
+                new_chapter = Manga_chapters(
+                    manga_name=data.manga_name, chapter_name=chapter_name, chapter_img_link=new_path, manga_id=manga_id)
+                db.session.add(new_chapter)
+                db.session.commit()
+
+                flash("New Chaptre added.", category="success")
 
     return render_template('add_chapter.html', user=current_user, data=data)
 
