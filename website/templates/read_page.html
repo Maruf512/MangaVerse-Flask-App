@@ -1,0 +1,47 @@
+
+{% extends "base.html" %}
+{% block title %}Read-{% endblock %}
+
+{% block content %}
+
+<div class="view-container">
+    <!-- Details -->
+    <div class="view-details">
+        <div class="view-page_info">
+            <h1 class="view-title" >MangaVerse</h1>
+            <h2>Chapter 1 Part 1-10</h2>
+        </div>
+
+        <!-- Navigation btn -->
+        <div class="view-navigation_btn">
+            <a href="previous_page">
+                <input type="button" value="Back">
+            </a>
+
+            <!-- Navigation btn -->
+            <div class="navigation_btn">
+                <a href="previous_page">
+                    <input type="button" value="Back">
+                </a>
+
+                <a href="next_page">
+                    <input type="button" value="Next">
+                </a>
+            </div>
+            <a href="next_page">
+                <input type="button" value="Next">
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Image -->
+    <div class="img-container">
+        <div class="main_image">
+            <img src="{{ url_for('static', filename='files/Manga_chapters/' + img_dir + '/' + img_name)}}" alt="Chapter 1">
+        </div>
+
+
+
+
+{% endblock %}

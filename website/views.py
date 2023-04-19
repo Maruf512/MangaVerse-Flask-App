@@ -20,13 +20,6 @@ def home():
     return render_template("home.html", user=current_user, admin=admin, data=data)
 
 
-@views.route('/view')
-def view():
-    # give access to admin
-    admin = admin_authorization.get_access(current_user.email)
-
-    return render_template("view_page.html", admin=admin, user=current_user)
-
 # ===================================================================
 # ========================== Manga details ==========================
 # ===================================================================
@@ -228,15 +221,27 @@ def edit_manga(manga_id):
 
 
 # ===================================================================
-# ============================ View Manga ===========================
+# ============================ Read Manga ===========================
 # ===================================================================
+@views.route('/read/<chapter_id>')
+def read_manga(chapter_id):
+    # give access to admin
+    admin = admin_authorization.get_access(current_user.email)
+    # get data from database
+    chapter = Manga_chapters.query.filter_by(id=chapter_id).first()
+    # prepare data
+    img_path = chapter.chapter_img_link.split('/')
+    img_dir = img_path[-2]
+    img_name = img_path[-1]
+
+    return render_template("read_page.html", admin=admin, user=current_user, img_dir=img_dir, img_name=img_name)
 
 
 @views.route('/next_page')
 def next_page():
-    return view()
+    return read_manga()
 
 
 @views.route('/previous_page')
 def previous_page():
-    return view()
+    return read_manga()
