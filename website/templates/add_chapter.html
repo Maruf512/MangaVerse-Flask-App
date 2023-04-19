@@ -3,7 +3,43 @@
 
 {% block content %}
 
-<h1>Add Manga</h1>
+<main>
+    <!-- main container -->
+    <div class="details_container add_manga_container">
+        <h2>Add chapter</h2>
+        
+
+
+    </div>
+
+    <div class="chapter_container">
+        <h2>All Chapters</h2>
+        {% if admin %}
+        <div class="admin_edit_chapter">
+            <a href="/add_chapter/{{data.id}}"><img src="{{ url_for('static', filename='image/edit.png')}}"width="32px" alt="edit"></a>
+        </div>
+        {% endif %}
+        <div class="chapters">
+            <hr>
+            <ul class="chapter_list">
+                {% for chapter in data.chapters %}
+                <li>
+                    <div class="chapter">
+                        <p>{{ chapter.id }}</p>
+                        <p><a href="#">{{ chapter.chapter_name }}</a></p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+
+</main>
 
 
 

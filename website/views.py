@@ -129,7 +129,9 @@ def add_chapter(manga_id):
     # db.session.add(new_chapter)
     # db.session.commit()
 
-    return render_template('add_chapter.html', user=current_user)
+    data = Manga_info.query.filter_by(id=manga_id).first()
+
+    return render_template('add_chapter.html', user=current_user, data=data)
 
 # ===================================================================
 # ============================ Delet Manga =========================

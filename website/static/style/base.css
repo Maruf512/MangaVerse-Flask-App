@@ -399,8 +399,6 @@ main{
 main .details_container{
     display: flex;
     background-color: rgba(35, 37, 37, 0.850);
-    /* background-color: aqua; */
-    /* padding: 12px; */
     margin: 1rem;
     border-radius: 26px;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
@@ -605,5 +603,13 @@ main .chapter_container{
     justify-content: center;
     align-items: center;
 
+}
+
+/* ================================================================= */
+/* ====================== Add Chapter ============================== */
+/* ================================================================= */
+
+.add_manga_container{
+    padding: 14px;
 }
 
