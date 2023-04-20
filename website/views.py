@@ -24,15 +24,18 @@ def home():
 # ========================== Manga details ==========================
 # ===================================================================
 
-
 @views.route('manga/<manga_id>')
 def details(manga_id):
     # give access to admin
     admin = admin_authorization.get_access(current_user.email)
-
+    # get Manga Info from database
     data = Manga_info.query.filter_by(id=manga_id).first()
 
-    return render_template("details.html", admin=admin, user=current_user, data=data)
+    # get Chapter from database
+    chapter = Manga_chapters.query.filter_by(manga_id=manga_id).first()
+    chapter = chapter.id
+
+    return render_template("details.html", admin=admin, user=current_user, data=data, first_chapter=chapter)
 
 
 # ===================================================================
