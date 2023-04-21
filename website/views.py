@@ -33,7 +33,10 @@ def details(manga_id):
 
     # get Chapter from database
     chapter = Manga_chapters.query.filter_by(manga_id=manga_id).first()
-    chapter = chapter.id
+    if chapter:
+        chapter = chapter.id
+    else:
+        chapter = False
 
     return render_template("details.html", admin=admin, user=current_user, data=data, first_chapter=chapter)
 

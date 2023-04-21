@@ -15,7 +15,7 @@ input:focus, textarea:focus, select:focus{
 }
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: rgba(35, 37, 37, 0.850);
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {

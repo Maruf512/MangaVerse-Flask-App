@@ -35,7 +35,11 @@
                 <p>Ratings: {{ data.manga_rating }}</p>
             </div>
             <div class="detail_buttons">
-                <a href="/read/{{ first_chapter }}" class="btn btn-primary buttons">Read First</a>
+                {% if first_chapter %}
+                    <a href="/read/{{ first_chapter }}" class="btn btn-primary buttons">Read First</a>
+                {% else %}
+                <a href="#" class="btn btn-primary buttons">Read First</a>
+                {% endif %}
                 <a href="#" class="btn btn-primary buttons">Follow</a>
             </div>
             <div class="discription">
